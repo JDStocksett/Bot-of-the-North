@@ -1,0 +1,17 @@
+{
+  "name": "package.json",
+  "version": "1.0.2",
+  "description": "Omne bot of various things",
+  "author": "OmneGeek",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "discord.js-commando": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "main": "bot.js",
+  "scripts": {
+    "test": "!ping"
+  },
+  "license": "ISC"
+}
