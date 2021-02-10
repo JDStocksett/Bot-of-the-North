@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 
 module.exports = async function (msg, args) {
+	console.log("gif command");
 	let keywords = "random"
 	if (args.length > 0) {
 		keywords = args.join(" ");
@@ -11,6 +12,7 @@ module.exports = async function (msg, args) {
 	let json = await response.json();
 	let resCount = json.results.length;
 	const index = Math.floor(Math.random() * resCount);
-	//console.log(index);
+	
+	console.log(index);
 	msg.channel.send (json.results[index].url);
 };
