@@ -11,7 +11,7 @@ module.exports = async function (msg, client) {
 		//Our bot needs to know if it will execute a command
 		//It will listen for messages that will start with `!`
 		let tokens = msg.content.split(" ");
-			//console.log(tokens)
+			console.log(tokens)
 		let command = tokens.shift();
 		if (command.charAt(0) === "!") {
 			command = command.substring(1);
