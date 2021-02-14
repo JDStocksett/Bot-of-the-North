@@ -4,10 +4,16 @@
   "description": "A Discord bot for Con of the North's Discord server",
   "author": "OmneGeek",
   "dependencies": {
+    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.1",
-    "discord.js-commando": "^0.10.0",
+    "discord.js-commando": "git+https://github.com/discordjs/commando.git",
     "dotenv": "^8.2.0",
+    "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@audio": "./audio"
   },
   "main": "bot.js",
   "scripts": {

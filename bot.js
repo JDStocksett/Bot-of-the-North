@@ -1,23 +1,27 @@
 console.log("Starting...");
 
 require("dotenv").config();
+require("module-alias/register")
 
-// Initialize Discord Bot
-const Discord = require('discord.js');
-var client = new Discord.Client();
-client.login(process.env.BOTTOKEN);
+const path = require("path")
+const Commando = require('discord.js-commando')
 
-client.on("ready", readyDiscord);
+const client = new Commando.CommandoClient({
+    owner: '143050314604347392',
+    commandPrefix: '!'
+})
 
-function readyDiscord() {
+client.on("ready", async () => {
     console.log("Connected");
-    //console.log('Logged in as: ');
-    //console.log(client.username + ' - (' + client.id + ')');
-}
 
+    client.registry
+        .registerGroups([
+            ["misc", "misc commands"],
+            ["moderation", "moderation commands"],
+            ["audio", "audio commands"]
+		])
+        .registerDefaults()
+        .registerCommandsIn(path.join(__dirname, "cmds"))
+})
 
-const commandHandler = require("./commands");
-
-client.on("message", commandHandler);
-
-
+client.login(process.env.BOTTOKEN);
