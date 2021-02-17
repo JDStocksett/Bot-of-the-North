@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\cmds",
-    "\\cmds\\misc"
+    "\\cmds\\misc",
+    "\\cmds\\moderation"
   ],
-  "SelectedNode": "\\cmds\\misc\\curtime.js",
+  "SelectedNode": "\\cmds\\moderation\\clearchannel.js",
   "PreviewInSolutionExplorer": false
 }
