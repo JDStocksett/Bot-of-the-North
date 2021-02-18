@@ -8,6 +8,6 @@
     "outDir": "./dist",
     "skipLibCheck": true
   },
-  "include": ["bot.ts", "cmds/**/*.ts"],
+  "include": ["./src/bot.ts", "./src/cmds/**/*.ts"],
   "exclude": ["node_modules"]
 }

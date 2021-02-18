@@ -18,7 +18,7 @@
   "main": "./dist/bot.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node bot.ts",
+    "dev": "tsc && nodemon ./dist/bot.js",
     "prod": "tsc && node ./dist/bot.js",
     "start": "nodemon ./dist/bot.js",
     "format": "prettier-standard '**/*.ts'",
