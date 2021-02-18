@@ -13,7 +13,7 @@ const client = new Commando.CommandoClient({
 })
 
 client.on("ready", async () => {
-    console.log("Connected");
+    console.log("Connected!");
 
     client.registry
         .registerGroups([
@@ -23,8 +23,6 @@ client.on("ready", async () => {
         ])
         .registerDefaults()
         .registerCommandsIn(path.join(__dirname, "cmds"))
-
-    console.log(client.registry.commands.keys());
 })
 
 client.login(process.env.BOTTOKEN);
