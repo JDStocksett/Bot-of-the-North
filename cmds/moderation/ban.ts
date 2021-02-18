@@ -1,6 +1,6 @@
-const Commando = require("discord.js-commando")
+import * as Commando from "discord.js-commando";
 
-module.exports = class BanCommand extends Commando.Command{
+module.exports = class BanCommand extends Commando.Command {
 	constructor(client) {
 		super(client, {
 			name: "ban",
@@ -23,14 +23,14 @@ module.exports = class BanCommand extends Commando.Command{
 			return
 		}
 
-		const {guild} = message
+		const { guild } = message
 
 		const member = guild.members.cache.get(target.id)
 		if (member.banable) {
 			member.ban()
-			message.reply(member.displayName + " got the :banhammer:")
+			return message.reply(member.displayName + " got the :banhammer:")
 		} else {
-			message.reply("I cannot kick that user")
+			return message.reply("I cannot kick that user")
 		}
 	}
 }

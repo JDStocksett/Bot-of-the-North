@@ -1,5 +1,5 @@
-const Commando = require("discord.js-commando")
-const fetch = require("node-fetch")
+import * as Commando from "discord.js-commando";
+import * as fetch from 'node-fetch';
 
 module.exports = class AddCommand extends Commando.Command {
 	constructor(client) {
@@ -19,13 +19,13 @@ module.exports = class AddCommand extends Commando.Command {
 			keywords = args
 		}
 		console.log(keywords)
-		let url = `https://api.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&ContentFilter=medium`
-		let response = await fetch(url);
-		let json = await response.json();
-		let resCount = json.results.length;
+		const url = `https://api.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&ContentFilter=medium`
+		const response = await fetch(url);
+		const json = await response.json();
+		const resCount = json.results.length;
 		const index = Math.floor(Math.random() * resCount);
-	
+
 		console.log(index);
-		message.channel.send (json.results[index].url);
+		return message.channel.send(json.results[index].url);
 	}
 }

@@ -1,4 +1,4 @@
-const Commando = require("discord.js-commando")
+import * as Commando from "discord.js-commando";
 
 module.exports = class AddCommand extends Commando.Command {
 	constructor(client) {
@@ -17,6 +17,6 @@ module.exports = class AddCommand extends Commando.Command {
 			sum += parseInt(arg)
 		}
 
-		message.reply(`the sum is ${sum}.`)
+		return message.reply(`the sum is ${sum}.`)
 	}
 }

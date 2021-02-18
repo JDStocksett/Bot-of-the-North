@@ -1,4 +1,4 @@
-const Commando = require("discord.js-commando")
+import * as Commando from "discord.js-commando";
 
 module.exports = class AddCommand extends Commando.Command {
 	constructor(client) {
@@ -11,16 +11,16 @@ module.exports = class AddCommand extends Commando.Command {
 		})
 	}
 
-	async run(message, args) {
+	async run(message) {
 		console.log("--time command--")
 		process.env.TZ = 'America/Chicago'
-		let date = new Date()
-        // Send time
-		let hours = date.getHours()
-		var dow = 0
-		let day = date.getDay()
+		const date = new Date()
+		// Send time
+		const hours = date.getHours()
+		let dow = "";
+		const day = date.getDay()
 		switch (day) {
-			case 0: 
+			case 0:
 				dow = "Sunday"
 				break
 			case 1:
@@ -42,21 +42,21 @@ module.exports = class AddCommand extends Commando.Command {
 				dow = "Saturday"
 				break
 		}
-        let content = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-		var content2 = 0
+		const content = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+		let content2 = "";
 		if (hours > 12) {
 			console.log(">12")
 			content2 = date.getHours() - 12 + ":" + date.getMinutes() + ":" + date.getSeconds() + " PM"
-		} else if (hours = 12) {
+		} else if (hours == 12) {
 			console.log("=12")
 			content2 = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " PM"
-		} else  if (hours = 0) {
+		} else if (hours == 0) {
 			console.log("0")
-			content2 = date.getHours() + 12  + ":" + date.getMinutes() + ":" + date.getSeconds() + " AM"
+			content2 = date.getHours() + 12 + ":" + date.getMinutes() + ":" + date.getSeconds() + " AM"
 		} else {
 			console.log("<12")
 			content2 = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " AM"
-		}		
-		message.channel.send("It's currently " + dow + ", " + content + " | " + content2 + " - convention (Central) time.")
+		}
+		return message.channel.send("It's currently " + dow + ", " + content + " | " + content2 + " - convention (Central) time.")
 	}
 }

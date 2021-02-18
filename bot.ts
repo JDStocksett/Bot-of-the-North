@@ -1,10 +1,11 @@
+import 'module-alias/register';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+import * as Commando from 'discord.js-commando';
+
+dotenv.config();
+
 console.log("Starting...");
-
-require("dotenv").config();
-require("module-alias/register")
-
-const path = require("path")
-const Commando = require('discord.js-commando')
 
 const client = new Commando.CommandoClient({
     owner: '143050314604347392',
@@ -19,9 +20,11 @@ client.on("ready", async () => {
             ["misc", "misc commands"],
             ["moderation", "moderation commands"],
             ["audio", "audio commands"]
-		])
+        ])
         .registerDefaults()
         .registerCommandsIn(path.join(__dirname, "cmds"))
+
+    console.log(client.registry.commands.keys());
 })
 
 client.login(process.env.BOTTOKEN);
