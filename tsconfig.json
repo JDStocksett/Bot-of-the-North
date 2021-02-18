@@ -6,7 +6,11 @@
     "sourceMap": false,
     "target": "es6",
     "outDir": "./dist",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": true
   },
   "include": ["./src/bot.ts", "./src/cmds/**/*.ts"],
   "exclude": ["node_modules"]

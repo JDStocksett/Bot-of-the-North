@@ -10,7 +10,7 @@ console.log("Starting...");
 const client = new Commando.CommandoClient({
     owner: '143050314604347392',
     commandPrefix: '!'
-})
+});
 
 client.on("ready", async () => {
     console.log("Connected!");
@@ -22,7 +22,7 @@ client.on("ready", async () => {
             ["audio", "audio commands"]
         ])
         .registerDefaults()
-        .registerCommandsIn(path.join(__dirname, "cmds"))
-})
+        .registerCommandsIn(path.join(__dirname, "cmds"));
+});
 
 client.login(process.env.BOTTOKEN);
