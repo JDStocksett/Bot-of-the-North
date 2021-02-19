@@ -18,7 +18,7 @@ module.exports = class AddCommand extends Commando.Command {
 		if (message.member && message.member.roles.cache.some(r => ["Volunteer", "Paizo Society", "Magnetrons"].includes(r.name))) {
 			if ((channel.id !== '742919603574931608') && (channel.id !== '742917901853655101') && (channel.id !== '742916074294476813') && (channel.id !== '428371336071610379') && (channel.id != '809893272880283689')) {
 				const numberOfLines = Number(args);
-				const lines = (numberOfLines > 0 ? 100 : numberOfLines);
+				const lines = (numberOfLines > 0 ? numberOfLines : 100);
 				console.log("Clearing chat");
 				channel.bulkDelete(lines, true);
 				return message;
