@@ -1,8 +1,8 @@
 {
   "name": "package.json",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A Discord bot for Con of the North's Discord server",
-  "author": "OmneGeek",
+  "author": "OmneGeek, Yiggles",
   "dependencies": {
     "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.1",
@@ -15,9 +15,26 @@
     "@root": ".",
     "@audio": "./audio"
   },
-  "main": "bot.js",
+  "main": "./dist/bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "build": "tsc",
+    "postbuild": "cpy  --cwd=src --parents '**/*.wav' ../dist/",
+    "start": "node ./dist/bot.js",
+    "dev": "npm run build && nodemon ./dist/bot.js",
+    "prod": "npm run build && npm run start",
+    "format": "prettier-standard '**/*.ts'",
+    "lint": "eslint . --ext .ts"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.28",
+    "@types/node-fetch": "^2.5.8",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "cpy-cli": "^3.1.1",
+    "eslint": "^7.20.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  }
 }
